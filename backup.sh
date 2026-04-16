@@ -5,8 +5,8 @@ mkdir -p "$BACKUP_DIR"
 
 echo "=== INZIO BACKUP ==="
 echo "1. produzione liste di pacchetti..."
-pacman -Qqen > ~/pkglist-repo.txt # pacchetti dai repository ufficiali
-pacman -Qqm > ~/pkglist-aur.txt # pacchetti AUR
+pacman -Qqen > "$BACKUP_DIR/pkglist-repo.txt" # pacchetti dai repository ufficiali
+pacman -Qqm > "$BACKUP_DIR/pkglist-aur.txt" # pacchetti AUR
 
 echo "2. produzione archivio dotfiles..."
 tar -czf "$BACKUP_DIR/dotfiles-backup.tar.gz" \
