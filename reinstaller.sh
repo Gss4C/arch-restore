@@ -1,6 +1,9 @@
 #!/bin/bash
 
-read -p "<path to backup_dir>" BACKUP_DIR
+set -euo pipefail
+
+read -p "Inserisci il percorso della directory di backup: " BACKUP_DIR
+[ -d "$BACKUP_DIR" ] || { echo "Directory non trovata: $BACKUP_DIR"; exit 1; }
 
 echo "=== REINSTALL PACKAGE ==="
 
@@ -13,7 +16,7 @@ if ! command -v yay &> /dev/null; then
     echo "Installazione yay..."
     sudo pacman -S --needed --noconfirm git base-devel
     git clone https://aur.archlinux.org/yay.git
-    cd yay
+    cd yay || { echo "Clone yay fallito"; exit 1; }
     makepkg -si --noconfirm
     cd ..
     rm -rf yay
