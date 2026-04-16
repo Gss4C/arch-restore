@@ -6,7 +6,6 @@ echo "=== REINSTALL PACKAGE ==="
 
 # Aggiorna sistema e chiavi
 echo "Aggiornamento sistema"
-sudo pacman -Syy --noconfirm #Più sicuro mettercelo
 sudo pacman -Syu --noconfirm
 
 # Installa yay se necessario
